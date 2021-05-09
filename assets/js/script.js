@@ -44,7 +44,6 @@ function typeChoice() {
       answer = window.confirm("Would you like to include " + typesArray[i] + " in the password? " + hint);
 
       if (answer) {
-        // console.log(typesArray[i]);
         chosenTypesArray.push(typesArray[i]);
       }
     }
@@ -52,12 +51,11 @@ function typeChoice() {
     if (!chosenTypesArray.length) {
       window.alert("You should choose at least one character type. Please try again.");
     }
-    // console.log(chosenTypesArray);
   }
   return chosenTypesArray;
 }
 
-function passwordGenerator(characterTypes, lenghtPassword) {
+function passwordGenerator(characterTypes, lengthPassword) {
   var selectionArray = [];
   var passwordArray = "";
 
@@ -77,10 +75,7 @@ function passwordGenerator(characterTypes, lenghtPassword) {
         break;
     }
   }
-  for (var i = 0; i < lenghtPassword; i++) {
-    var a = Math.random() * selectionArray.length;
-    var b = Math.floor(a);
-    var c = selectionArray[b];
+  for (var i = 0; i < lengthPassword; i++) {
     passwordArray += selectionArray[Math.floor(Math.random() * selectionArray.length)];
   }
   return passwordArray;
@@ -89,15 +84,13 @@ function passwordGenerator(characterTypes, lenghtPassword) {
 
 // Main function to call the operational functions
 function generatePassword() {
-  var lenghtPassword = lengthChoice();
+  var lengthPassword = lengthChoice();
   var chosenTypesArray = typeChoice();
-  // console.log(chosenTypesArray);
-  var password = passwordGenerator(chosenTypesArray, lenghtPassword);
+  var password = passwordGenerator(chosenTypesArray, lengthPassword);
   console.log(password);
 
   return password;
 }
-
 
 // Write password to the #password input
 function writePassword() {
